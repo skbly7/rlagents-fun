@@ -1,0 +1,7 @@
+{
+  "env": "PongDeterministic-v4",
+  "monitor": false,
+  "num_gpus": 1,
+  "num_workers": 3,
+  "use_pytorch": true
+}

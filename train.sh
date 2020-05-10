@@ -4,4 +4,4 @@ FILE=$1
 DIRECTORY="${FILE%.*}"
 mkdir -p $DIRECTORY/ray_results
 
-rllib train -f $1
+rllib train -f $1 --torch

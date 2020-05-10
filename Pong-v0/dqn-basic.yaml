@@ -1,0 +1,13 @@
+pong-v0-dqn-basic:
+  env: Pong-v0
+  run: DQN
+  stop:
+    episode_reward_mean: 10000
+    time_total_s: 600
+  config:
+    num_workers: 3
+    num_gpus: 1
+    monitor: True
+  checkpoint_freq: 1
+  checkpoint_at_end: True
+  local_dir: Pong-v0/dqn-basic/ray_results

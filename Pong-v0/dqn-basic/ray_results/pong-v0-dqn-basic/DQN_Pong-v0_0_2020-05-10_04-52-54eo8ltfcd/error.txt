@@ -1,0 +1,81 @@
+Failure # 1 (occurred at 2020-05-10_04-52-58)
+Traceback (most recent call last):
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 467, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 431, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/worker.py", line 1515, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(DependencyNotInstalled): [36mray::DQN.train()[39m (pid=21529, ip=172.31.20.81)
+  File "python/ray/_raylet.pyx", line 463, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 417, in ray._raylet.execute_task.function_executor
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 495, in train
+    raise e
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 484, in train
+    result = Trainable.train(self)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/tune/trainable.py", line 261, in train
+    result = self._train()
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 142, in _train
+    return self._train_exec_impl()
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 177, in _train_exec_impl
+    res = next(self.train_exec_impl)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 634, in __next__
+    return next(self.built_iterator)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 644, in apply_foreach
+    for item in it:
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 685, in apply_filter
+    for item in it:
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 685, in apply_filter
+    for item in it:
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 644, in apply_foreach
+    for item in it:
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 685, in apply_filter
+    for item in it:
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 888, in build_union
+    item = next(it)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 634, in __next__
+    return next(self.built_iterator)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 644, in apply_foreach
+    for item in it:
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 644, in apply_foreach
+    for item in it:
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 644, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 396, in base_iterator
+    yield ray.get(futures, timeout=timeout)
+ray.exceptions.RayTaskError(DependencyNotInstalled): [36mray::RolloutWorker.par_iter_next()[39m (pid=21530, ip=172.31.20.81)
+  File "python/ray/_raylet.pyx", line 463, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 417, in ray._raylet.execute_task.function_executor
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/util/iter.py", line 958, in par_iter_next
+    return next(self.local_it)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 260, in gen_rollouts
+    yield self.sample()
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 510, in sample
+    batches = [self.input_reader.next()]
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 54, in next
+    batches = [self.get_data()]
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 98, in get_data
+    item = next(self.rollout_provider)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 336, in _env_runner
+    base_env.poll()
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 308, in poll
+    self.new_obs = self.vector_env.vector_reset()
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/env/vector_env.py", line 96, in vector_reset
+    return [e.reset() for e in self.envs]
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/ray/rllib/env/vector_env.py", line 96, in <listcomp>
+    return [e.reset() for e in self.envs]
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/gym/wrappers/monitor.py", line 39, in reset
+    self._after_reset(observation)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/gym/wrappers/monitor.py", line 185, in _after_reset
+    self.reset_video_recorder()
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/gym/wrappers/monitor.py", line 206, in reset_video_recorder
+    self.video_recorder.capture_frame()
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/gym/wrappers/monitoring/video_recorder.py", line 116, in capture_frame
+    self._encode_image_frame(frame)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/gym/wrappers/monitoring/video_recorder.py", line 162, in _encode_image_frame
+    self.encoder = ImageEncoder(self.path, frame.shape, self.frames_per_sec, self.output_frames_per_sec)
+  File "/home/ubuntu/miniconda2/envs/aicrowd/lib/python3.7/site-packages/gym/wrappers/monitoring/video_recorder.py", line 255, in __init__
+    raise error.DependencyNotInstalled("""Found neither the ffmpeg nor avconv executables. On OS X, you can install ffmpeg via `brew install ffmpeg`. On most Ubuntu variants, `sudo apt-get install ffmpeg` should do it. On Ubuntu 14.04, however, you'll need to install avconv with `sudo apt-get install libav-tools`.""")
+gym.error.DependencyNotInstalled: Found neither the ffmpeg nor avconv executables. On OS X, you can install ffmpeg via `brew install ffmpeg`. On most Ubuntu variants, `sudo apt-get install ffmpeg` should do it. On Ubuntu 14.04, however, you'll need to install avconv with `sudo apt-get install libav-tools`.
+

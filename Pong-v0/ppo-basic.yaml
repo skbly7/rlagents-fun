@@ -1,0 +1,13 @@
+pong-v0-ppo-basic:
+  env: PongDeterministic-v4
+  run: PPO
+  stop:
+    episode_reward_mean: 10000
+    #time_total_s: 600
+  config:
+    num_workers: 3
+    num_gpus: 1
+    monitor: False
+  checkpoint_freq: 10
+  checkpoint_at_end: True
+  local_dir: Pong-v0/ppo-basic/ray_results

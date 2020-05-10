@@ -1,0 +1,7 @@
+{
+  "env": "Pong-v0",
+  "monitor": true,
+  "num_gpus": 1,
+  "num_workers": 3,
+  "use_pytorch": true
+}
