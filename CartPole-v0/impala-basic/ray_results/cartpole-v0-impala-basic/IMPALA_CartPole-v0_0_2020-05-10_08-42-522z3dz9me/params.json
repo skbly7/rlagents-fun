@@ -1,0 +1,7 @@
+{
+  "env": "CartPole-v0",
+  "grad_clip": 42,
+  "monitor": true,
+  "num_gpus": 0,
+  "num_workers": 1
+}
