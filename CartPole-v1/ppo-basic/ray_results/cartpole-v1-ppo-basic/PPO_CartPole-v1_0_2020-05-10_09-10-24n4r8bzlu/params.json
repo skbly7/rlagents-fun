@@ -1,0 +1,6 @@
+{
+  "env": "CartPole-v1",
+  "monitor": true,
+  "num_gpus": 0,
+  "num_workers": 1
+}

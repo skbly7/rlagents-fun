@@ -1,0 +1,14 @@
+cartpole-v1-impala-basic:
+  env: CartPole-v1
+  run: IMPALA
+  stop:
+    episode_reward_mean: 500
+    time_total_s: 600
+  config:
+    num_workers: 1
+    num_gpus: 0
+    monitor: True
+    grad_clip: 42
+  checkpoint_freq: 1
+  checkpoint_at_end: True
+  local_dir: CartPole-v1/impala-basic/ray_results

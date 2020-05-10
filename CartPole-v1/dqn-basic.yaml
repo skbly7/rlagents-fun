@@ -1,0 +1,13 @@
+cartpole-v1-dqn-basic:
+  env: CartPole-v1
+  run: DQN
+  stop:
+    episode_reward_mean: 500
+    time_total_s: 600
+  config:
+    num_workers: 1
+    num_gpus: 0
+    monitor: True
+  checkpoint_freq: 1
+  checkpoint_at_end: True
+  local_dir: CartPole-v1/dqn-basic/ray_results

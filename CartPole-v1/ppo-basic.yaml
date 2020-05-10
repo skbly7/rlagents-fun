@@ -1,0 +1,13 @@
+cartpole-v1-ppo-basic:
+  env: CartPole-v1
+  run: PPO
+  stop:
+    episode_reward_mean: 500
+    time_total_s: 600
+  config:
+    num_workers: 1
+    num_gpus: 0
+    monitor: True
+  checkpoint_freq: 1
+  checkpoint_at_end: True
+  local_dir: CartPole-v1/ppo-basic/ray_results
